@@ -1,0 +1,38 @@
+server:
+  port: 8680
+eureka:
+  instance:
+    preferIpAddress: true
+    ip-address: 192.168.1.89
+spring:
+  datasource:
+      name: datasource-1506
+      url: jdbc:sqlserver://192.168.1.242:1433;DatabaseName=DtradeNetGarment1506
+      username: '{cipher}47002453a64b9a49840f6aea799fdd03bf39544f4557cd77093d89657064e5bf'
+      password: '{cipher}5f01bfa54d59d3d5a968c35ac0014b0445ae347d36d9edc5b8b0b7a1b79fa5e2'
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+
+#my weixin config
+weixin:
+  approve:
+    mpo-url:
+  import:
+    mpo-url: http://localhost:8080/Weixin/ImportMpoExcessConfirm?companycode={companycode}&batchpushid={batchpushid}&uploadall={uploadall}
+
+myprofileinfo: this is datatransfer dev profile
+    
